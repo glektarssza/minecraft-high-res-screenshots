@@ -1,0 +1,18 @@
+[
+    {
+        "modid": "${modId}",
+        "name": "${modName}",
+        "description": "A mod that lets you take high resolution screenshots in Minecraft.",
+        "version": "${modVersion}",
+        "mcversion": "${minecraftVersion}",
+        "url": "https://github.com/glektarssza/minecraft-high-res-screenshots",
+        "updateUrl": "https://github.com/glektarssza/minecraft-high-res-screenshots/raw/refs/heads/main/forgeUpdateManifest.json",
+        "authorList": [
+            "G'lek Tarssza"
+        ],
+        "credits": "G'lek Tarssza for this mod, the GTNH team for their Gradle build tools, the RetroFuturaGradle team for their build tools.",
+        "logoFile": "assets/high_res_screenshots/textures/logo.png",
+        "dependencies": [],
+        "screenshots": []
+    }
+]
