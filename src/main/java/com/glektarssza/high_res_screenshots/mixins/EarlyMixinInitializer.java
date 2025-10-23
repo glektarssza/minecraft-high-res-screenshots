@@ -68,6 +68,7 @@ public class EarlyMixinInitializer
     public List<String> getMixins(Set<String> loadedMods) {
         List<String> mixins = new ArrayList<String>();
         // -- Vanilla mixins
+        mixins.add("vanilla.MinecraftMixin");
         return mixins;
     }
 }
