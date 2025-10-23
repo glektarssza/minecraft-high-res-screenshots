@@ -19,7 +19,9 @@
     "java.cleanup.actions": [
         "renameFileToType",
         "addOverride",
-        "organizeImports"
+        "organizeImports",
+        "renameUnusedLocalVariables",
+        "redundantModifiers"
     ],
     "java.codeAction.sortMembers.avoidVolatileChanges": true,
     "java.codeGeneration.addFinalForNewDeclaration": "none",
@@ -34,20 +36,24 @@
     "java.codeGeneration.toString.template": "${object.className} [${member.name()}=${member.value}, ${otherMembers}]",
     "java.codeGeneration.useBlocks": true,
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.compile.nullAnalysis.nonnull": [
-        "javax.annotation.Nonnull"
-    ],
+    "java.compile.nullAnalysis.nonnull": ["javax.annotation.Nonnull"],
     "java.compile.nullAnalysis.nonnullbydefault": [
         "javax.annotation.ParametersAreNonnullByDefault"
     ],
-    "java.compile.nullAnalysis.nullable": [
-        "javax.annotation.Nullable"
-    ],
+    "java.compile.nullAnalysis.nullable": ["javax.annotation.Nullable"],
     "java.completion.chain.enabled": true,
     "java.completion.collapseCompletionItems": true,
     "java.completion.enabled": true,
     "java.completion.engine": "ecj",
-    "java.completion.guessMethodArguments": "off",
+    "java.completion.filteredTypes": [
+        "java.awt.*",
+        "com.sun.*",
+        "sun.*",
+        "jdk.*",
+        "org.graalvm.*",
+        "io.micrometer.shaded.*"
+    ],
+    "java.completion.guessMethodArguments": "insertParameterNames",
     "java.completion.importOrder": [
         "#",
         "java",
@@ -66,16 +72,13 @@
     "java.completion.matchCase": "firstLetter",
     "java.completion.maxResults": 0,
     "java.completion.postfix.enabled": true,
-    "java.configuration.detectJdksAtStart": true,
-    "java.configuration.runtimes": [],
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.detectJdksAtStart": false,
+    "java.configuration.updateBuildConfiguration": "automatic",
     "java.debug.logLevel": "warn",
     "java.debug.settings.console": "integratedTerminal",
     "java.debug.settings.debugSupportOnDecompiledSource": "on",
     "java.debug.settings.enableRunDebugCodeLens": true,
-    "java.debug.settings.exceptionBreakpoint.skipClasses": [
-        "$JDK"
-    ],
+    "java.debug.settings.exceptionBreakpoint.skipClasses": ["$JDK"],
     "java.debug.settings.forceBuildBeforeLaunch": true,
     "java.debug.settings.hotCodeReplace": "manual",
     "java.debug.settings.maxStringLength": 0,
@@ -86,9 +89,7 @@
     "java.debug.settings.showQualifiedNames": false,
     "java.debug.settings.showStaticVariables": false,
     "java.debug.settings.showToString": true,
-    "java.debug.settings.stepping.skipClasses": [
-        "$JDK"
-    ],
+    "java.debug.settings.stepping.skipClasses": ["$JDK"],
     "java.debug.settings.stepping.skipConstructors": false,
     "java.debug.settings.stepping.skipStaticInitializers": false,
     "java.debug.settings.stepping.skipSynthetics": false,
@@ -96,10 +97,9 @@
     "java.dependency.packagePresentation": "flat",
     "java.dependency.refreshDelay": 2000,
     "java.dependency.showMembers": true,
+    "java.dependency.enableDependencyCheckup": true,
     "java.dependency.syncWithFolderExplorer": true,
-    "java.diagnostic.filter": [
-        "**/build/**"
-    ],
+    "java.diagnostic.filter": ["**/build/**"],
     "java.eclipse.downloadSources": false,
     "java.edit.smartSemicolonDetection.enabled": false,
     "java.edit.validateAllOpenBuffersOnChanges": true,
@@ -117,7 +117,7 @@
     "java.import.generatesMetadataFilesAtProjectRoot": false,
     "java.import.gradle.annotationProcessing.enabled": true,
     "java.import.gradle.enabled": true,
-    "java.import.gradle.java.home": "/lib/jvm/temurin-21-jdk-amd64/",
+    "java.import.gradle.java.home": "/lib/jvm/java-21-temurin/",
     "java.import.gradle.offline.enabled": false,
     "java.import.gradle.version": "8.13",
     "java.import.gradle.wrapper.enabled": true,
@@ -126,9 +126,9 @@
     "java.inlayHints.parameterNames.enabled": "none",
     "java.jdt.ls.androidSupport.enabled": "off",
     "java.jdt.ls.appcds.enabled": "off",
-    "java.jdt.ls.java.home": "/lib/jvm/temurin-21-jdk-amd64/",
+    "java.jdt.ls.java.home": "/lib/jvm/java-21-temurin/",
     "java.jdt.ls.javac.enabled": "off",
-    "java.jdt.ls.lombokSupport.enabled": true,
+    "java.jdt.ls.lombokSupport.enabled": false,
     "java.jdt.ls.protobufSupport.enabled": true,
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms512m -Xlog:disable",
     "java.maven.downloadSources": true,
@@ -136,6 +136,17 @@
     "java.maxConcurrentBuilds": 1,
     "java.project.encoding": "ignore",
     "java.project.explorer.showNonJavaResources": true,
+    "java.project.resourceFilters": [
+        "\\.git",
+        "\\.vscode",
+        "\\.github",
+        "\\.cspell",
+        "bin",
+        "build",
+        "run",
+        "templates",
+        "node_modules"
+    ],
     "java.quickfix.showAt": "line",
     "java.refactoring.extract.interface.replace": true,
     "java.references.includeAccessors": true,
@@ -147,7 +158,7 @@
     "java.search.scope": "all",
     "java.selectionRange.enabled": true,
     "java.server.launchMode": "Standard",
-    "java.sharedIndexes.enabled": "auto",
+    "java.sharedIndexes.enabled": "off",
     "java.showBuildStatusOnStart.enabled": "notification",
     "java.signatureHelp.description.enabled": true,
     "java.signatureHelp.enabled": true,
