@@ -53,7 +53,10 @@ public class HighResScreenshots {
      */
     @Nonnull
     public static CommonProxy getProxy() {
-        return proxy;
+        if (proxy != null) {
+            return proxy;
+        }
+        throw new RuntimeException("Proxy is null, this should never happen!");
     }
 
     /**
