@@ -9,6 +9,7 @@
         "./.cspell/configs/linux-dictionary.json",
         "./.cspell/configs/python-dictionary.json",
         "./.cspell/configs/java-dictionary.json",
+        "./.cspell/configs/opengl-dictionary.json",
         "./.cspell/configs/minecraft-dictionary.json",
         "./.cspell/configs/project-dictionary.json"
     ],
