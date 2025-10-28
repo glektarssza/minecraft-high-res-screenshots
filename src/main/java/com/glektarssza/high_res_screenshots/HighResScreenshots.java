@@ -1,8 +1,12 @@
 package com.glektarssza.high_res_screenshots;
 
+import java.io.File;
+import java.lang.invoke.MethodHandles;
+
 import javax.annotation.Nonnull;
 
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -16,6 +20,13 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
  */
 @Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.MOD_VERSION, dependencies = Tags.MOD_DEPENDENCIES, acceptableRemoteVersions = Tags.MOD_VERSION, acceptedMinecraftVersions = "[1.7.10]", modLanguage = "java", guiFactory = "com.glektarssza.high_res_screenshots.config.GuiFactory", canBeDeactivated = false, useMetadata = true)
 public class HighResScreenshots {
+    /**
+     * The logger for this class.
+     */
+    @SuppressWarnings("unused")
+    private static final Logger LOGGER = LoggerFactory
+        .getLogger(MethodHandles.lookup().lookupClass());
+
     /**
      * The proxy instance.
      */
@@ -33,17 +44,22 @@ public class HighResScreenshots {
      *
      * @return The mod singleton instance.
      */
+    @Nonnull
     public static HighResScreenshots getInstance() {
-        return instance;
+        if (instance != null) {
+            return instance;
+        }
+        throw new RuntimeException(
+            "Instance is null, this should never happen!");
     }
 
     /**
-     * Get the main logger for the mod.
+     * Get the path to the mod configuration directory.
      *
-     * @return The main logger for the mod.
+     * @return The path to the mod configuration directory.
      */
-    public static Logger getRootLogger() {
-        return proxy.getRootLogger();
+    public File getConfigDir() {
+        return getProxy().getConfigDir();
     }
 
     /**
