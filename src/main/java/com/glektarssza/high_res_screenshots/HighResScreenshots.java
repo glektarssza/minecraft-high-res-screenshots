@@ -11,6 +11,8 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
+import com.glektarssza.high_res_screenshots.utils.TypeHelper;
+
 /**
  * The root mod class.
  */
@@ -53,7 +55,7 @@ public class HighResScreenshots {
      */
     @Nonnull
     public static CommonProxy getProxy() {
-        return proxy;
+        return TypeHelper.castToNonNull(proxy);
     }
 
     /**
