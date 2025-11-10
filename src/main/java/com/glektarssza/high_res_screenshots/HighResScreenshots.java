@@ -2,14 +2,11 @@ package com.glektarssza.high_res_screenshots;
 
 import javax.annotation.Nonnull;
 
-import org.apache.logging.log4j.Logger;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
 import com.glektarssza.high_res_screenshots.utils.TypeHelper;
 
@@ -37,15 +34,6 @@ public class HighResScreenshots {
      */
     public static HighResScreenshots getInstance() {
         return instance;
-    }
-
-    /**
-     * Get the main logger for the mod.
-     *
-     * @return The main logger for the mod.
-     */
-    public static Logger getRootLogger() {
-        return proxy.getRootLogger();
     }
 
     /**
@@ -86,15 +74,5 @@ public class HighResScreenshots {
     @Mod.EventHandler
     public void onPostInit(FMLPostInitializationEvent event) {
         getProxy().postInit(event);
-    }
-
-    /**
-     * Handle the Forge Mod Loader server starting event.
-     *
-     * @param event The event to handle.
-     */
-    @Mod.EventHandler
-    public void onServerStarting(FMLServerStartingEvent event) {
-        getProxy().serverStarting(event);
     }
 }

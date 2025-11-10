@@ -7,25 +7,17 @@ import javax.annotation.Nonnull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.minecraft.util.ResourceLocation;
-
 import cpw.mods.fml.client.event.ConfigChangedEvent;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
-import net.minecraftforge.common.MinecraftForge;
-
 import com.glektarssza.high_res_screenshots.utils.TypeHelper;
 
 import serverutils.events.ServerUtilitiesPreInitRegistryEvent;
 
-/**
- * The common and server-side proxy.
- */
-public class CommonProxy {
+public class ClientProxy extends CommonProxy {
     /**
      * The logger for this class.
      */
@@ -38,18 +30,15 @@ public class CommonProxy {
      *
      * @param event The incoming event.
      */
+    @Override
     public void preInit(FMLPreInitializationEvent event) {
-        LOGGER.info("Pre-initializing server/common-side for {}...",
+        super.preInit(event);
+        LOGGER.info("Pre-initializing client-side for {}...",
             Tags.MOD_NAME);
-        LOGGER.info("Initializing mod {} configuration...",
+        LOGGER.info("Registering mod {} key bindings...",
             Tags.MOD_NAME);
-        // TODO: Initialize configuration
-        LOGGER.info("Registering mod {} with the Forge event bus...",
-            Tags.MOD_NAME);
-        MinecraftForge.EVENT_BUS.register(this);
-        // -- OnConfigChangedEvent comes in through here
-        FMLCommonHandler.instance().bus().register(this);
-        LOGGER.info("Done pre-initializing server/common-side for {}!",
+        // TODO: Register key bindings
+        LOGGER.info("Done pre-initializing client-side for {}!",
             Tags.MOD_NAME);
     }
 
@@ -58,10 +47,12 @@ public class CommonProxy {
      *
      * @param event The incoming event.
      */
+    @Override
     public void init(FMLInitializationEvent event) {
-        LOGGER.info("Initializing server/common-side for {}...", Tags.MOD_NAME);
+        super.init(event);
+        LOGGER.info("Initializing client-side for {}...", Tags.MOD_NAME);
         // -- Does nothing yet!
-        LOGGER.info("Done initializing server/common-side for {}!",
+        LOGGER.info("Done initializing client-side for {}!",
             Tags.MOD_NAME);
     }
 
@@ -70,11 +61,13 @@ public class CommonProxy {
      *
      * @param event The incoming event.
      */
+    @Override
     public void postInit(FMLPostInitializationEvent event) {
-        LOGGER.info("Post-initializing server/common-side for {}...",
+        super.postInit(event);
+        LOGGER.info("Post-initializing client-side for {}...",
             Tags.MOD_NAME);
         // -- Does nothing yet!
-        LOGGER.info("Done post-initializing server/common-side for {}!",
+        LOGGER.info("Done post-initializing client-side for {}!",
             Tags.MOD_NAME);
     }
 
@@ -83,24 +76,17 @@ public class CommonProxy {
      *
      * @param event The incoming event.
      */
+    @Override
     @SubscribeEvent
     public void serverUtilitiesPreInitRegistry(
         ServerUtilitiesPreInitRegistryEvent event) {
+        super.serverUtilitiesPreInitRegistry(event);
         LOGGER.info(
-            "Pre-initializing server/common-side of Server Utilities stuff for {}...",
+            "Pre-initializing client-side of Server Utilities stuff for {}...",
             Tags.MOD_NAME);
-        event.getRegistry().registerServerReloadHandler(
-            new ResourceLocation(Tags.MOD_ID, "config"),
-            reloadEvent -> {
-                try {
-                    // TODO: Sync config
-                } catch (Throwable t) {
-                    return false;
-                }
-                return true;
-            });
+        // -- Does nothing yet!
         LOGGER.info(
-            "Done pre-initializing server/common-side of Server Utilities stuff for {}!",
+            "Done pre-initializing client-side of Server Utilities stuff for {}!",
             Tags.MOD_NAME);
     }
 
@@ -109,15 +95,17 @@ public class CommonProxy {
      *
      * @param event The incoming event.
      */
+    @Override
     @SubscribeEvent
     public void configChanged(ConfigChangedEvent event) {
+        super.configChanged(event);
         if (event.modID.equals(Tags.MOD_ID)) {
             LOGGER.info(
-                "Handling common/sever side of configuration change for {}...",
+                "Handling client side of configuration change for {}...",
                 Tags.MOD_NAME);
             // TODO: Handle any configuration changed logic
             LOGGER.info(
-                "Done handling common/sever side of configuration change for {}!",
+                "Done handling client side of configuration change for {}!",
                 Tags.MOD_NAME);
         }
     }
