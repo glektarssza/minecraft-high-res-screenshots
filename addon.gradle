@@ -1,9 +1,11 @@
-// java {
-//     toolchain {
-//         // -- We'd like the Temurin JDK please
-//         vendor.set(JvmVendorSpec.ADOPTIUM)
-//     }
-// }
+compileJava.options.encoding = "UTF-8"
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
 
 minecraft {
     injectedTags.put("MOD_ID", modId)

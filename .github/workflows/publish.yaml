@@ -83,6 +83,16 @@ jobs:
       gradle-version: ${{inputs.gradle-version}}
     secrets:
       github-token: ${{secrets.github-token || secrets.GITHUB_TOKEN}}
+  test:
+    name: Test
+    permissions:
+      # -- To clone repository
+      contents: read
+    uses: ./.github/workflows/test.yaml
+    with:
+      ref: ${{github.sha}}
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
   publish:
     name: Publish
     runs-on: ubuntu-latest
@@ -91,6 +101,7 @@ jobs:
       contents: write
     needs:
       - build
+      - test
     steps:
       - id: checkout-repository
         name: Checkout repository
