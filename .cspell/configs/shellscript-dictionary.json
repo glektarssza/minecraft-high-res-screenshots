@@ -1,0 +1,19 @@
+{
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+    "id": "linux-dictionary",
+    "version": "0.2",
+    "name": "Shellscript Custom Dictionary Configuration",
+    "description": "Custom dictionary definition configuration for Shellscript.",
+    "readonly": true,
+    "dictionaryDefinitions": [
+        {
+            "name": "shellscript-dictionary",
+            "description": "Shellscript Dictionary",
+            "type": "S",
+            "useCompounds": false,
+            "noSuggest": true,
+            "path": "../dictionaries/shellscript.txt"
+        }
+    ],
+    "dictionaries": ["shellscript-dictionary"]
+}
