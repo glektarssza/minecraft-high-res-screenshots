@@ -64,15 +64,15 @@ on:
       artifact-id:
         description: |
           The ID of the generated artifacts.
-        value: ${{jobs.build.outputs.artifact-id}}
+        value: ${{jobs.test.outputs.artifact-id}}
       artifact-name:
         description: |
           The name of the generated artifacts.
-        value: ${{jobs.build.outputs.artifact-name}}
+        value: ${{jobs.test.outputs.artifact-name}}
       artifact-url:
         description: |
           The URL from which the generated artifacts can be downloaded.
-        value: ${{jobs.build.outputs.artifact-url}}
+        value: ${{jobs.test.outputs.artifact-url}}
     secrets:
       github-token:
         description: |
