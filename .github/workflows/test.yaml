@@ -140,7 +140,7 @@ jobs:
         if: inputs.upload-artifacts
         uses: actions/upload-artifact@v5
         with:
-          name: dist
+          name: test-reports
           path: build/reports/tests/
           compression-level: 0
           if-no-files-found: error
