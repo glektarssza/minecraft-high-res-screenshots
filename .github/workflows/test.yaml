@@ -79,8 +79,8 @@ on:
           The token to use when making authenticated calls to the GitHub API.
         required: true
 jobs:
-  build:
-    name: Build
+  test:
+    name: Test
     runs-on: ubuntu-latest
     permissions:
       # -- Needed to clone the repository
