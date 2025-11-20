@@ -1,11 +1,11 @@
 package com.glektarssza.high_res_screenshots.utils.function;
 
 /**
- * A function that accepts no arguments and produces no result.
+ * A function that accepts no arguments and produces no results.
  */
 public interface VoidConsumer {
     /**
      * Invoke the function.
      */
-    public void invoke();
+    void invoke();
 }
