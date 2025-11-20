@@ -56,10 +56,6 @@ public class TypeHelpersTests {
         }
     }
 
-    /**
-     * Test that the {@link TypeHelpers#castToNonNull(Object, String)} method
-     * throws a {@link NullPointerException} when passed a {@code null} value.
-     */
     @Test
     public void testCastToNonNullThrowsOnNull() {
         // -- Given
@@ -75,11 +71,6 @@ public class TypeHelpersTests {
             .hasMessage("Object is null!");
     }
 
-    /**
-     * Test that the {@link TypeHelpers#castToNonNull(Object, String)} method
-     * does not throw a {@link NullPointerException} when passed a
-     * {@code non-null} value.
-     */
     @Test
     public void testCastToNonNullDoesNotThrowOnNonNull() {
         // -- Given
