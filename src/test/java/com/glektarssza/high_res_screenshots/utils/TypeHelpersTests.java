@@ -14,9 +14,9 @@ import org.junit.jupiter.api.Test;
 import net.datafaker.Faker;
 
 /**
- * Unit tests for the {@link Types} class.
+ * Unit tests for the {@link TypeHelpers} class.
  */
-public class TypesTests {
+public class TypeHelpersTests {
     /**
      * A pattern which matches against unsigned long integers.
      */
@@ -57,8 +57,8 @@ public class TypesTests {
     }
 
     /**
-     * Test that the {@link Types#castToNonNull(Object, String)} method throws a
-     * {@link NullPointerException} when passed a {@code null} value.
+     * Test that the {@link TypeHelpers#castToNonNull(Object, String)} method
+     * throws a {@link NullPointerException} when passed a {@code null} value.
      */
     @Test
     public void testCastToNonNullThrowsOnNull() {
@@ -67,7 +67,7 @@ public class TypesTests {
 
         // -- When
         ThrowingCallable func = () -> {
-            Types.castToNonNull(value, "Object is null!");
+            TypeHelpers.castToNonNull(value, "Object is null!");
         };
 
         // -- Then
@@ -76,9 +76,9 @@ public class TypesTests {
     }
 
     /**
-     * Test that the {@link Types#castToNonNull(Object, String)} method does not
-     * throw a {@link NullPointerException} when passed a {@code non-null}
-     * value.
+     * Test that the {@link TypeHelpers#castToNonNull(Object, String)} method
+     * does not throw a {@link NullPointerException} when passed a
+     * {@code non-null} value.
      */
     @Test
     public void testCastToNonNullDoesNotThrowOnNonNull() {
@@ -87,7 +87,7 @@ public class TypesTests {
 
         // -- When
         ThrowingCallable func = () -> {
-            Types.castToNonNull(value, "Object is null!");
+            TypeHelpers.castToNonNull(value, "Object is null!");
         };
 
         // -- Then
