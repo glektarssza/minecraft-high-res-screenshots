@@ -14,9 +14,9 @@ public class TypeHelpers {
      *
      * @param value The value to check/cast.
      *
-     * @return The {@code value}, cast to a {@link Nonnull} annotated value.
+     * @return The value, cast to a {@link Nonnull} annotated value.
      *
-     * @throws NullPointerException Thrown if the {@code value} is {@code null}.
+     * @throws NullPointerException Thrown if the value is {@code null}.
      */
     public static @Nonnull <T> T castToNonNull(@Nullable T value) {
         return castToNonNull(value, null);
@@ -28,18 +28,18 @@ public class TypeHelpers {
      * {@link NullPointerException}.
      *
      * @param value The value to check/cast.
-     * @param message The message to throw a {@link NullPointerException} with
-     *        if the {@code value} is {@code null}.
+     * @param message The message to throw an exception with if the value is
+     *        {@code null}.
      *
-     * @return The {@code value}, cast to a {@link Nonnull} annotated value.
+     * @return The value, cast to a {@link Nonnull} annotated value.
      *
-     * @throws NullPointerException Thrown if the {@code value} is {@code null}.
+     * @throws NullPointerException Thrown if the value is {@code null}.
      */
     public static @Nonnull <T> T castToNonNull(@Nullable T value,
         @Nullable String message) {
-        if (value == null) {
-            throw new NullPointerException(message);
+        if (value != null) {
+            return value;
         }
-        return value;
+        throw new NullPointerException(message);
     }
 }
