@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 /**
  * Some useful type helpers.
  */
-public class TypeHelper {
+public class Types {
     /**
      * Determine of a value is not {@code null} and return it as a
      * {@link Nonnull} annotated value if so, otherwise throw a
