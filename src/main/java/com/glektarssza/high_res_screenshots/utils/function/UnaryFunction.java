@@ -14,5 +14,5 @@ public interface UnaryFunction<T, R> {
      *
      * @return The function result.
      */
-    public R invoke(T arg);
+    R invoke(T arg);
 }

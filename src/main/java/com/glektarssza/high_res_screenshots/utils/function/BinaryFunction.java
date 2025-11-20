@@ -16,5 +16,5 @@ public interface BinaryFunction<T1, T2, R> {
      *
      * @return The function result.
      */
-    public R invoke(T1 arg1, T2 arg2);
+    R invoke(T1 arg1, T2 arg2);
 }

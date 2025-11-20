@@ -11,5 +11,5 @@ public interface VoidFunction<R> {
      *
      * @return The function result.
      */
-    public R invoke();
+    R invoke();
 }
