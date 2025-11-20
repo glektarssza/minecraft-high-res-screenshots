@@ -1,7 +1,7 @@
 package com.glektarssza.high_res_screenshots.utils.function;
 
 /**
- * A function that accepts three arguments and produces no result.
+ * A function that accepts three arguments and produces no results.
  *
  * @param <T1> The type of the first argument.
  * @param <T2> The type of the second argument.
@@ -15,5 +15,5 @@ public interface TernaryConsumer<T1, T2, T3> {
      * @param arg2 The second function argument.
      * @param arg3 The third function argument.
      */
-    public void invoke(T1 arg1, T2 arg2, T3 arg3);
+    void invoke(T1 arg1, T2 arg2, T3 arg3);
 }

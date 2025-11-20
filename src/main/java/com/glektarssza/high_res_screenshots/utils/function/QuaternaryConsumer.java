@@ -1,7 +1,7 @@
 package com.glektarssza.high_res_screenshots.utils.function;
 
 /**
- * A function that accepts four arguments and produces no result.
+ * A function that accepts four arguments and produces no results.
  *
  * @param <T1> The type of the first argument.
  * @param <T2> The type of the second argument.
@@ -17,5 +17,5 @@ public interface QuaternaryConsumer<T1, T2, T3, T4> {
      * @param arg3 The third function argument.
      * @param arg4 The fourth function argument.
      */
-    public void invoke(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    void invoke(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
 }
