@@ -13,7 +13,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
-import com.glektarssza.high_res_screenshots.utils.TypeHelper;
+import com.glektarssza.high_res_screenshots.utils.TypeHelpers;
 
 import serverutils.events.ServerUtilitiesPreInitRegistryEvent;
 
@@ -22,7 +22,7 @@ public class ClientProxy extends CommonProxy {
      * The logger for this class.
      */
     @Nonnull
-    private static final Logger LOGGER = TypeHelper.castToNonNull(LoggerFactory
+    private static final Logger LOGGER = TypeHelpers.castToNonNull(LoggerFactory
         .getLogger(MethodHandles.lookup().lookupClass()));
 
     /**
