@@ -2,6 +2,7 @@ aabb
 assetmover
 attackable
 bonemeal
+buildcraft
 chestplate
 coremod
 ender
