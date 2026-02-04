@@ -3,6 +3,8 @@ version: 2
 updates:
   - directory: /
     package-ecosystem: gradle
+    ignore:
+      - dependency-name: gradle-wrapper
     labels:
       - Dependency
     schedule:
